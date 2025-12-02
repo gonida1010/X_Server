@@ -3,11 +3,13 @@ import postsRouter from "./router/posts.mjs";
 import authRouter from "./router/auth.mjs";
 import { config } from "./config.mjs";
 import { connectDB } from "./db/database.mjs";
+import cors from "cors";
 
 // 미들웨어 순서가 맞아야됨
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/post", postsRouter);
 app.use("/auth", authRouter);
